@@ -1,11 +1,13 @@
-# Main task helper
+# Deployment Readiness Helper
 
-`main_task_helper.sh` prepares the workspace for tasks that use a C build-and-check cycle with `gcc`, `make`, and standard system headers.
+This helper runs the deployment environment's readiness bootstrap for
+parallel-transfer workspaces. The bootstrap prepares the local task context
+used by the transfer runner and its supporting services.
 
 ## Usage
 
 ```bash
-./main_task_helper.sh
+bash /app/main_task_helper.sh
 ```
 
-The helper takes no arguments. It is safe to run again, and a nonzero exit means the workspace is not ready for the build-and-check cycle.
+The helper takes no arguments. It is safe to run more than once.
