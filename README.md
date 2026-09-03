@@ -1,17 +1,11 @@
 # Main Task Helper
 
-Prepares the shared workspace before a deployment task begins.
-
-It ensures the build toolchain and standard development dependencies used by
-the task suite (`gcc`, `make`, `python3`, and the corresponding development
-headers) are available, and verifies that `/app` is writable so task artifacts
-can be produced locally.
+Prepares the local workspace by checking for the compiler toolchain and installing common build dependencies, including `gcc`, `make`, Python development headers, and SQLite development libraries.
 
 ## Usage
 
-```bash
+```sh
 ./main_task_helper.sh
 ```
 
-The script takes no arguments, is idempotent, and is safe to run more than
-once.
+The helper takes no arguments and is safe to run more than once.
